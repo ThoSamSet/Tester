@@ -1,0 +1,159 @@
+<!--
+Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Profile</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <style>
+            img {
+                max-width: 100%;
+            }
+            li {
+                list-style: none;
+            }
+            a {
+                text-decoration: none;
+            }
+
+            .site-title {
+                width: 120px;
+                line-height: 1px;
+                padding: 10px 0;
+            }
+            .site-title a {
+                display: block;
+            }
+            .site-title a:hover {
+                opacity: 0.7;
+            }
+
+            .section-title {
+                display: inline-block;
+                text-align: center;
+                margin-bottom: 60px;
+                border-bottom: solid 1px #383e45;
+            }
+
+            .wrapper {
+                max-width: 960px;
+                margin: 0 auto 100px auto;
+                padding: 0 4%;
+                text-align: center;
+            }
+
+            #header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 auto;
+                max-width: 960px;
+                max-height: 60px;
+            }
+            #header ul {
+                display: flex;
+                padding: 10px 0;
+            }
+            #header li {
+                margin-left: 30px;
+            }
+            #header li a {
+                color: #24292e;
+            }
+            #header li a:hover {
+                opacity: 0.7;
+            }
+
+            #mainvisual img {
+                width: 100%;
+                max-width: 1920px;
+                height: 600px;
+                object-fit: cover;
+            }
+
+            #about .content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #about img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin-right: 30px;
+            }
+            #about .text {
+                text-align: left;
+            }
+
+            #bicycle ul {
+                display: flex;
+                justify-content: space-between;
+            }
+            #bicycle li {
+                width: 32%;
+            }
+
+            #footer {
+                text-align: center;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <header id="header">
+            <h1 class="site-title"><a href="Index.html"><img src="https://code-jump.com/demo/html/profile/img/logo.svg" alt="Profile"></a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#bicycle">Bicycle</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div id="mainvisual">
+                <img src="https://code-jump.com/demo/html/profile/img/mainvisual.jpg" alt="Image">
+            </div>
+
+            <section id="about" class="wrapper">
+                <h2 class="section-title">About</h2>
+                <div class="content">
+                    <img src="https://code-jump.com/demo/html/profile/img/about.jpg" alt="Avatar">
+                    <div class="text">
+                        <h3 class="content-title">PHAN XUAN DUNG</h3>
+                        <p>TEXT TEXT TEXT TEXT TEXT </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bicycle" class="wrapper">
+                <h2 class="section-title">Bicycle</h2>
+                <ul>
+                    <li>
+                        <img src="https://code-jump.com/demo/html/profile/img/bicycle1.jpg" alt="Image1">
+                        <h3 class="content-title">Title</h3>
+                        <p>Text Text Text Text </p>
+                    </li>
+                    <li>
+                        <img src="https://code-jump.com/demo/html/profile/img/bicycle2.jpg" alt="Image2">
+                        <h3 class="content-title">Title</h3>
+                        <p>Text Text Text Text </p>
+                    </li>
+                    <li>
+                        <img src="https://code-jump.com/demo/html/profile/img/bicycle3.jpg" alt="Image3">
+                        <h3 class="content-title">Title</h3>
+                        <p>Text Text Text Text </p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <p>&copy; 2024 Profile</p>
+        </footer>
+    </body>
+</html>

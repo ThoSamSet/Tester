@@ -1,0 +1,175 @@
+<!--
+Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PHOTO BOOK by DUNG</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <style>
+            body {
+                background-color: #f4f9ff;
+                color: #333;
+            }
+            img {
+                max-width: 100%;
+            }
+            
+
+            .container {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            .inner {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            #header {
+                margin-top: 60px;
+            }
+            #header .site-title {
+                width: 160px;
+                line-height: 1px;
+                margin-bottom: 15px;
+            }
+            #header .site-title a {
+                display: block;
+            }
+
+            #mainvisual {
+                margin-bottom: 60px;
+            }
+
+            #index {
+                background-color: #fff;
+                padding: 30px 0;
+                margin-bottom: 60px;
+            }
+            #index .index-list {
+                margin-left: 20px;
+            }
+            #index .index-list li {
+                margin-bottom: 20px;
+            }
+            #index .index-list li:last-child {
+                margin-bottom: 0;
+            }
+
+            #detail {
+                margin-bottom: 100px;
+            }
+            #detail .content {
+                display: flex;
+                align-items: flex-start;
+            }
+            #detail .content .img {
+                width: 270px;
+                margin-right: 60px;
+            }
+            #detail .content .text p {
+                margin-bottom: 20px;
+            }
+            #detail .content dl {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 16px 0;
+                margin-bottom: 25px;
+                border-top: solid 1px #dedede;
+                border-bottom: solid 1px #dedede;
+            }
+            #detail .content dt {
+                width: 25%;
+            }
+            #detail .content dd {
+                width: 75%;
+            }
+            #detail .content .link {
+                color: #333;
+            }
+            #detail .content .link:hover {
+                opacity: 0.8;
+            }
+
+            #footer {
+                padding: 15px 0;
+            }
+
+            @media screen and (max-width: 1024px) {
+                .inner {
+                    padding: 0 40px;
+                }
+                #header {
+                    padding: 0 10px;
+                }
+                #mainvisual {
+                    padding: 0 10px;
+                }
+                #detail .content {
+                    flex-direction: column;
+                }
+                #detail .content .img {
+                    width: 100%;
+                    margin: 0 0 25px 0;
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <header id="header">
+                <h1 class="site-title">
+                    <a href="index.html"><img src="https://code-jump.com/demo/html/photo/img/logo.svg" alt="PHOTO BOOK"></a>    
+                </h1>
+            </header>
+    
+            <main>
+                <div id="mainvisual">
+                    <img src="https://code-jump.com/demo/html/photo/img/mainvisual.jpg" alt="Image">
+                </div>
+
+                <section id="index">
+                    <div class="inner">
+                        <h2 class="section-title">INDEX</h2>
+                        <ol class="index-list">
+                            <li>title title title title title title </li>
+                            <li>title title title title title title </li>
+                            <li>title title title title title title </li>
+                            <li>title title title title title title </li>
+                            <li>title title title title title title </li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section id="detail">
+                    <div class="inner">
+                        <h2 class="section-title">DETAIL</h2>
+                        <div class="content">
+                            <img class="img" src="https://code-jump.com/demo/html/photo/img/detail.jpg" alt="Image">
+                            <div class="text">
+                                <p class="title">PHOTO TITLE</p>
+                                <dl>
+                                    <dt>著者</dt>
+                                    <dd>titletitletitle</dd>
+                                    <dt>出版社</dt>
+                                    <dd>titletitletitle</dd>
+                                    <dt>発行年</dt>
+                                    <dd>titletitletitle</dd>
+                                </dl>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a</p>
+                                <a class="link" href="#">オンラインストアで見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+    
+            <footer id="footer">
+                <p class="inner">&copy; 2024 PHOTO BOOK</p>
+            </footer>
+        </div>
+    </body>
+</html>
