@@ -7,22 +7,32 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
         <meta charset="utf-8">
         <title>ROOT</title>
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <style>
+            .container {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+        </style>
     </head>
 
     <body>
-        <header id="header">
-            <h1 class="site-title">作成したページ↓↓↓</h1>
-        </header>
-
-        <main id="main">
-            <a href="profile.html">Profile Page</a>
-            <a href="/photobook.html">Photobook Page</a>
-            <a href="/photobook2.html">Photobook2 Page</a>
-        </main>
-
-        <footer id="footer">
-            <p class="inner">&copy; 2024 PHOTO BOOK 2</p>
-        </footer>
+        <div class="container">
+            <header id="header">
+                <h1 class="site-title">作成したページ↓↓↓</h1>
+            </header>
+    
+            <main id="main">
+                <ol>
+                    <li><a href="profile.html">Profile Page</a></li>
+                    <li><a href="photobook.html">Photobook Page</a></li>
+                    <li><a href="photobook2.html">Photobook2 Page</a></li>
+                </ol>
+            </main>
+    
+            <footer id="footer">
+                <p class="inner">&copy; 2024 PHOTO BOOK 2</p>
+            </footer>
+        </div>
 
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEF8X871T6"></script>
