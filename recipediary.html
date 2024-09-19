@@ -1,0 +1,160 @@
+<!--
+Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Recipe Diary by Dung</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <style>
+            html {
+                font-size: 100%;
+            }
+
+            body {
+                color: #2b2a27;
+                font-family: "Helvetica Neue", "Arial", "Hiragino Sans", "Meiryo", sans-serif;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            a:hover {
+                opacity: 0.8;
+            }
+
+            .mainvisual img {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                object-position: center top;
+                margin-bottom: 80px;
+            }
+
+            .text {
+                text-align: center;
+                padding: 0 20px;
+                margin-bottom: 80px;
+            }
+
+            .text .recipediary-title {
+                margin-bottom: 20px;
+                font-size: 2em;
+            }
+
+            .flex {
+                display: flex;
+                margin-bottom: 60px;           
+            }
+
+            .flex li {
+                width: calc(100% / 3);
+                list-style: none;
+            }
+
+            .flex li img {
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
+                vertical-align: bottom;
+            }
+
+            .text .btn {
+                display: inline-block;
+                border: solid 1px #000000;
+                font-size: 0.875rem;
+                padding: 18px 60px;
+                color: #333;
+                text-decoration: none;
+            }
+
+            #footer {
+                text-align: center;
+                font-size: 0.75rem;
+                padding: 20px;
+            }
+
+            #footer .sns {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            #footer .sns li {
+                margin: 0 10px;
+                list-style: none;
+            }
+
+            #footer .sns a {
+                color: #000000;
+            }
+
+            @media screen and (max-width: 834px) {
+                .flex {
+                    flex-direction: column;
+                }
+
+                .flex li {
+                    width: 100%;
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>        
+        <main id="main">
+            <div class="mainvisual">
+                <img src="https://code-jump.com/demo/html/recipe/img/mainvisual.jpg" alt="Cover">
+            </div>
+
+            <div class="content">
+                <div class="text">
+                    <h1 class="recipediary-title">
+                        Recipe Diary
+                    </h1>
+                    <p class="recipediary-para">
+                        日々の料理レシピをまとめています。
+                        <br>
+                        和食や洋食、中華、お菓子までいろいろな料理レシピをアップしていますので、
+                        <br>
+                        みなさんの献立にお役立てくださいね！
+                    </p>
+                </div>
+
+                <section class="photolist">
+                    <ul class="flex">
+                        <li><img class="photo" src="https://code-jump.com/demo/html/recipe/img/recipe1.jpg" alt="1"></li>
+                        <li><img class="photo" src="https://code-jump.com/demo/html/recipe/img/recipe2.jpg" alt="2"></li>
+                        <li><img class="photo" src="https://code-jump.com/demo/html/recipe/img/recipe3.jpg" alt="3"></li>
+                    </ul>
+                </section>
+
+                <div class="text">
+                    <a href="#" class="btn">レシピ一覧を見る</a>
+                </div>
+            </div>
+        </main>
+
+        <footer id="footer">
+            <ul class="sns">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+            <p class="inner">&copy; 2024 Recipe Diary</p>
+        </footer>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEF8X871T6"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HEF8X871T6');
+        </script>
+    </body>
+</html>
