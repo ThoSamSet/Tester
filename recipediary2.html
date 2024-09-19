@@ -1,0 +1,204 @@
+<!--
+Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Recipe Diary 2 by DUNG</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <style>
+            html {
+                font-size: 100%;
+            }
+
+            body {
+                color: #2b2a27;
+                font-family: "Helvetica Neue", "Arial", "Hiragino Sans", "Meiryo", sans-serif;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            #main {
+                display: block;
+            }
+
+            .content {
+                display: flex;
+                margin-bottom: 60px;
+            }
+
+            .mainvisual {
+                width: 50%;
+            }
+            
+            .mainvisual img {
+                height: 700px;
+                width: 100%;
+                object-fit: cover;
+                vertical-align: bottom;
+            }
+
+            .text {
+                width: 50%;
+                padding: 40px 5% 0 5%;
+            }
+
+            .text .site-title h1 {
+                font-size: 1.75rem;
+                margin-bottom: 20px;
+            }
+
+            .text .material h2 {
+                border-bottom: solid 1px #ccc;
+                font-size: 1.25rem;
+                padding-bottom: 5px;
+                margin: 40px 0 15px 0;
+            }
+
+            .text .material .material-list {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .text .material .material-list dt {
+                width: 85%;
+                border-bottom: dotted 1px #ccc;
+                padding: 6px 0;
+            }
+
+            .text .material .material-list dd {
+                width: 15%;
+                border-bottom: dotted 1px #ccc;
+                padding: 6px 0;
+                text-align: right;
+            }
+
+            .text .how-to-create h2 {
+                border-bottom: solid 1px #ccc;
+                font-size: 1.25rem;
+                padding-bottom: 5px;
+                margin: 40px 0 15px 0;
+            }
+
+            .text .how-to-create li {
+                border-bottom: dotted 1px #ccc;
+                padding: 6px 0;
+                margin-left: 20px;
+            }
+
+            .button {
+                text-align: center;
+                padding: 0 20px;
+                margin-bottom: 80px;
+            }
+
+            .button .btn {
+                display: inline-block;
+                border: solid 1px #000000;
+                font-size: 0.875rem;
+                padding: 18px 60px;
+                color: #333;
+                text-decoration: none;
+            }
+
+            #footer {
+                text-align: center;
+                font-size: 0.75rem;
+                padding: 20px;
+            }
+
+            #footer .sns {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            #footer .sns li {
+                margin: 0 10px;
+                list-style: none;
+            }
+
+            #footer .sns a {
+                color: #000000;
+            }
+
+        </style>
+    </head>
+    <body>
+        <main id="main">
+            <div class="content">
+                <div class="mainvisual">
+                    <img src="https://code-jump.com/demo/html/recipe2/img/recipe.jpg" alt="Mainvisual img">
+                </div>
+
+                <div class="text">
+                    <section class="site-title">
+                        <h1>ひよこ豆とアボガドのタコス</h1>
+                        <p>たっぷりのひよこ豆とレンズ豆にアボガドとトマトを添えて、少しライムを絞ったらおいしいタコスのできあがりです。</p>
+                    </section>
+
+                    <section class="material">
+                        <h2>材料（2人分）</h2>
+                        <dl class="material-list">
+                            <dt>テキストテキスト</dt>
+                            <dd>1個</dd>
+                            <dt>テキストテキスト</dt>
+                            <dd>1個</dd>
+                            <dt>テキストテキスト</dt>
+                            <dd>1個</dd>
+                            <dt>テキストテキスト</dt>
+                            <dd>1個</dd>
+                            <dt>テキストテキスト</dt>
+                            <dd>1個</dd>
+                        </dl>
+                    </section>
+
+                    <section class="how-to-create">
+                        <h2>作り方</h2>
+                        <ol class="how-to-create-list">
+                            <li>テキストテキストテキストテキスト</li>
+                            <li>テキストテキストテキストテキスト</li>
+                            <li>テキストテキストテキストテキスト</li>
+                            <li>テキストテキストテキストテキスト</li>
+                            <li>テキストテキストテキストテキスト</li>
+                        </ol>
+                    </section>
+
+
+                </div>
+            </div>
+
+            <div class="button">
+                <a href="#" class="btn">レシピ一覧を見る</a>
+            </div>
+        </main>
+
+        <footer id="footer">
+            <ul class="sns">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+            <p class="inner">&copy; 2024 Recipe Diary</p>
+        </footer>
+        
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEF8X871T6"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HEF8X871T6');
+        </script>
+
+        <!-- Auto refresh page -->
+        <!-- <script>
+            setTimeout(() => location.reload(), 5000)
+        </script> -->
+    </body>
+</html>
