@@ -5,12 +5,13 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
 <html>
     <head>
         <meta charset="utf-8">
-        <title>HOMEPAGE</title>
+        <title>Test Zone</title>
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
         <style>
             html, body {
                 height: 100%;
                 margin: 0;
+                background-color: #fdfdfd;
             }
 
             a {
@@ -20,21 +21,77 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
 
             a:hover {
                 opacity: 0.8;
-            }
+            }            
 
             .container {
                 max-width: 1000px;
                 margin: 0 auto;
-                min-height: calc(100vh - 50px);
+                min-height: calc(100vh - 32px);
             }
 
             #header {
-                text-align: center;
-                margin-bottom: 60px;
+                display: flex;
+                margin-bottom: 40px;
+                flex-direction: column;
             }
+
+            #header .cover {
+                height: 240px;
+                min-width: 100%;
+                object-fit: cover;
+            }
+
+            #header .name {
+                display: flex;
+                margin-bottom: 40px;
+                transform: translateY(-80px);
+            }
+
+            #header .name a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                border-radius: 50%;
+                width: 200px;
+                height: 200px;
+                border: solid 4px #b1b1b1;
+
+                text-decoration: none;
+                overflow: hidden;
+            } 
+
+            #header .name .avt {
+                border-radius: 50%;
+                width: 105%;
+                height: 105%;
+                object-fit: cover;
+            }
+
+            #header .info-list {                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                transform: translateY(15px);
+                list-style: none;
+                margin-left: 30px;
+            }
+
+            #header .info-list .des {
+                color: #808080;
+            }
+
 
             #main {
                 margin-bottom: 20px;
+            }
+
+            #main .links-list {
+                margin-left: 240px;
+            }
+
+            #main .links-list li {
+                padding-bottom: 20px;
             }
 
             #footer {
@@ -52,18 +109,31 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
     <body>
         <div class="container">
             <header id="header">
-                <h1 class="avt"><a href="index.html"><img src="/avt.png" alt="Phan Xuan Dung"></a></h1>
-                <h1 class="site-title">作成したページ↓↓↓</h1>
+                <!-- <a href="index.html"><img  class="avt" src="C:\Users\p-xuandung\Desktop\Files\05_DM\WebDev\CodejumpTraining\avt.png" alt="Phan Xuan Dung"></a> -->
+                <div class="cover-photo">
+                    <a href="index.html"><img  class="cover" src="https://picsum.photos/1000" alt="Cover"></a>
+                </div>
+
+                <div class="name">
+                    <a href="index.html"><img  class="avt" src="https://picsum.photos/800" alt="Phan Xuan Dung"></a>
+                    
+                    <ul class="info-list">
+                        <li><h1 class="site-title">Phan Xuan Dung</h1></li>
+                        <li><h3 class="des">TextTextTextTextTextTextTextText</h3></li>
+                    </ul>
+                </div>
+                
             </header>
     
             <main id="main">
-                <ol>
+                <ol class="links-list">
                     <li><a href="profile.html">Profile Page</a></li>
                     <li><a href="photobook.html">Photobook Page</a></li>
                     <li><a href="photobook2.html">Photobook2 Page</a></li>
                     <li><a href="recipediary.html">Recipe Diary</a></li>
                     <li><a href="recipediary2.html">Recipe Diary 2</a></li>
                     <li><a href="myworkportfolio.html">My Work Portfolio</a></li>
+                    
                 </ol>
             </main>
         </div>
