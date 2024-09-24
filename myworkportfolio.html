@@ -1,0 +1,343 @@
+<!--
+Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My Work - Portfolio by Dung</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <style>
+            html {
+                font-size: 100%;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            #header {
+                display: flex;
+                justify-content: space-between;
+                max-width: 960px;
+                align-items: center;
+                height: 270px;
+                margin: 0 auto;
+                padding: 0 4%;
+            }
+
+            #header ul {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 0;
+
+            }
+
+            #header ul li {
+                font-size: 0.9rem;
+                margin-left: 30px;
+            }
+
+            #header .site-title {
+                line-height: 1px;
+            }
+
+            #header .nav .icon {
+                width: 20px;
+            }
+
+            #mainvisual {
+                margin-bottom: 80px;
+            }
+
+            #mainvisual  img {
+                width: 100%;
+                max-width: 1920px;
+                height: 420px;
+                object-fit: cover;
+            }
+
+            .wrapper {
+                max-width: 960px;
+                margin: 0 auto 130px auto;
+                font-size: 0.9rem;
+                padding: 0 4%;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                text-align: center;
+                margin-bottom: 65px;
+            }
+
+            #about li:first-child {
+                margin-bottom: 30px;
+            }
+
+            #about ul {
+                margin-bottom: 30px;
+            }
+
+            #about p {
+                text-align: justify;
+            }
+
+            #works ul {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-bottom: 50px;
+            }
+
+            #works li {
+                width: 31%;
+                margin-bottom: 23px;
+            }
+
+            #news dl {
+                display: flex;
+                flex-wrap: wrap;
+                border-top: solid 1px #c8c8c8;
+                margin-bottom: 20px;
+            }
+
+            #news dl dt {
+                width: 20%;
+                border-bottom: solid 1px #c8c8c8;
+                padding: 15px;
+            }
+
+            #news dl dd {
+                width: 80%;
+                border-bottom: solid 1px #c8c8c8;
+                padding: 15px;
+            }
+
+            #contact dl {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+            }
+
+            #contact .dt {
+                width: 15%;
+            }
+
+            #contact .dd {
+                width: 85%;
+                margin-bottom: 10px;
+            }
+
+            #contact .dd input,textarea {
+                width: 100%;
+                border: solid 1px #c8c8c8;
+                padding: 10px;
+            }
+
+            #contact .dd textarea {
+                height: 10rem;
+            }
+
+            #contact .button {
+                text-align: center;
+            }
+
+            #contact .button input {
+                width: 200px;
+                background-color: #24292e;
+                color: #fff;
+                padding: 15px 0;
+                border: solid 1px #24292e;
+            }
+
+            #contact .button input:hover {
+                background-color: #fff;
+                color: #24292e;
+            }
+
+            #footer {
+                background-color: #24292e;
+                color: #fff;
+                font-size: 0.5rem;
+                padding: 10px 20px;
+                text-align: center;
+            }
+
+            @media screen and (max-width: 600px) {
+                .wrapper {
+                    margin-bottom: 70px;
+                }
+
+                .site-title {
+                    margin-top: 20px;
+                }
+
+                .section-title {
+                    margin-bottom: 40px;
+                }
+
+                #header {
+                    max-width: 100%;
+                    height: auto;
+                    flex-direction: column;
+                }
+
+                #header li {
+                    font-size: 0.8rem;
+                    margin-left: 20px;
+                }
+
+                #header li:first-child {
+                    margin-left: 0;
+                }
+
+                #works ul {
+                    flex-direction: column;
+                }
+
+                #works li {
+                    width: 100%;
+                }
+
+                #news dl {
+                    flex-direction: column;
+                }
+
+                #news dl dt {
+                    width: 100%;
+                    border-bottom: none;
+                    padding-bottom: 0;
+                }
+
+                #news dl dd {
+                    width: 100%;
+                    padding-top: 0;
+                }
+
+                #contact dl {
+                    flex-direction: column;
+                }
+
+                #contact .dt {
+                    width: 100%;
+                }
+
+                #contact .dd {
+                    width: 100%;
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <h1 class="site-title"><a href="index.html"><img src="https://code-jump.com/demo/html/portfolio1/img/logo.svg" alt="LOGO"></a></h1>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a href="index.html" target="_blank"><img class="icon" src="https://code-jump.com/demo/html/portfolio1/img/icon-instagram.png" alt="Instagram"></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div id="mainvisual">
+                <picture>
+                    <source media="(max-width: 600px)" srcset="https://code-jump.com/demo/html/portfolio1/img/mainvisual-sp.jpg">
+                    <img src="https://code-jump.com/demo/html/portfolio1/img/mainvisual-pc.jpg" alt="Cover">
+                </picture>                
+            </div>
+
+            <section id="about" class="wrapper">
+                <h2 class="section-title">About</h2>
+                <ul>
+                    <li>Xxxxx Ashley</li>
+                    <li>2th Floor xxxxx Building x-x-x Nishiazabu, Minato-ku, Tokyo 106-0031 Japan</li>
+                    <li>tel: 000-0000-0000</li>
+                    <li>url: www.xxxxxx.jp</li>
+                    <li>mail: xxx@xxxxxx.jp</li>
+                </ul>
+                <p>
+                    プロフィールテキストテキストテキストテキストテキストテキストテキストテキストテキストスト テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                </p>
+            </section>
+
+            <section id="works" class="wrapper">
+                <h2 class="section-title">Works</h2>
+                <ul id="photo-list">
+                    <li><img src="https://code-jump.com/demo/html/portfolio1/img/works1.jpg" alt=""></li>
+                    <li><img src="https://code-jump.com/demo/html/portfolio1/img/works2.jpg" alt=""></li>
+                    <li><img src="https://code-jump.com/demo/html/portfolio1/img/works3.jpg" alt=""></li>
+                    <li><img src="https://code-jump.com/demo/html/portfolio1/img/works4.jpg" alt=""></li>
+                    <li><img src="https://code-jump.com/demo/html/portfolio1/img/works5.jpg" alt=""></li>
+                    <li><img src="https://code-jump.com/demo/html/portfolio1/img/works6.jpg" alt=""></li>
+                </ul>
+            </section>
+
+            <section id="news" class="wrapper">
+                <h2 class="section-title">News</h2>
+                <dl>
+                    <dt>2020.XX.XX</dt>
+                    <dd>デザイン雑誌「ＸＸＸＸＸＸ Vol.11』に掲載していただきました。</dd>
+                    <dt>2020.XX.XX</dt>
+                    <dd>ＸＸ月ＸＸ日から写真集「ＸＸＸＸＸＸＸ」の販売を開始します。</dd>
+                    <dt>2019.XX.XX</dt>
+                    <dd>【イベント開催のお知らせ】テキストテキストテキストテキストテキストテキストテキスト</dd>
+                    <dt>2019.XX.XX</dt>
+                    <dd>デザイン雑誌「ＸＸＸＸＸＸ Vol.10』に掲載していただきました。</dd>
+                    <dt>2019.XX.XX</dt>
+                    <dd>【個展開催のお知らせ】テキストテキストテキストテキストテキストテキストテキスト</dd>
+                </dl>
+            </section>
+
+            <section id="contact" class="wrapper">
+                <h2 class="section-title">Contact</h2>
+                <form action="#" method="post">
+                    <dl>
+                        <dt class="dt"><label for="name">NAME</label></dt>
+                        <dd class="dd"><input type="text" id="name" name="your-name"></dd>
+                        <dt class="dt"><label for="email">E-mail</label></dt>
+                        <dd class="dd"><input type="text" id="email" name="your-email"></dd>
+                        <dt class="dt"><label for="message">MESSAGE</label></dt>
+                        <dd class="dd"><textarea name="your-message" id="message"></textarea></dd>
+                    </dl>
+                    <div class="button"><input type="submit" value="送信"></div>
+                </form>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <p>&copy; 2024 My Work</p>
+        </footer>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEF8X871T6"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HEF8X871T6');
+        </script>
+
+        <!-- Auto refresh page -->
+        <!-- <script>
+            setTimeout(() => location.reload(), 3000)
+        </script> -->
+    </body>
+</html>
