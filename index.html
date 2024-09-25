@@ -21,17 +21,10 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
 
             a:hover {
                 opacity: 0.8;
-            }            
-
-            .container {
-                max-width: 1000px;
-                margin: 0 auto;
-                min-height: calc(100vh - 32px);
             }
 
             #header {
                 display: flex;
-                margin-bottom: 40px;
                 flex-direction: column;
             }
 
@@ -43,7 +36,7 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
 
             #header .name {
                 display: flex;
-                margin-bottom: 40px;
+                margin-left: 100px;
                 transform: translateY(-80px);
             }
 
@@ -60,6 +53,10 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
                 text-decoration: none;
                 overflow: hidden;
             } 
+
+            #header .name a:hover {
+                opacity: 1;
+            }
 
             #header .name .avt {
                 border-radius: 50%;
@@ -81,17 +78,40 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
                 color: #808080;
             }
 
-
             #main {
                 margin-bottom: 20px;
+                max-width: 1000px;
+                margin: 0 auto;
+                min-height: calc(100vh - 32px);
+                padding-top: 30px;
             }
 
             #main .links-list {
-                margin-left: 240px;
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+                align-items: center;
             }
 
             #main .links-list li {
-                padding-bottom: 20px;
+                margin-bottom: 0;
+            }
+
+            #main .links-list li a {
+                display: inline-block;
+                text-align: center;
+                width: 700px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin: 0 auto 20px auto;
+                border: dotted 1px #333;
+                transition: background-color 0.3s ease;
+                color: black;
+            }
+
+            #main .links-list li a:hover {
+                background-color: #000000;
+                color: white;
             }
 
             #footer {
@@ -102,41 +122,67 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
                 text-align: center;
             }
 
+            @media screen and (max-width: 850px) {
 
+                #header .name {
+                    flex-direction: column;
+                }
+
+                #header .name {
+                    margin-left: 0;
+                }
+
+                #header .name a, .avt {
+                    margin: 0 auto;
+                }
+
+                #header .name .info-list {
+                    margin: 0 auto;
+                    text-align: center;
+                }
+
+                #main .links-list {
+                    margin-left: 0;
+                }
+
+                #main .links-list li a {
+                    width: 400px;
+                }                
+            }
         </style>
     </head>
 
     <body>
-        <div class="container">
-            <header id="header">
-                <!-- <a href="index.html"><img  class="avt" src="C:\Users\p-xuandung\Desktop\Files\05_DM\WebDev\CodejumpTraining\avt.png" alt="Phan Xuan Dung"></a> -->
-                <div class="cover-photo">
-                    <a href="index.html"><img  class="cover" src="https://picsum.photos/1000" alt="Cover"></a>
-                </div>
+        
+        <header id="header">
+            <!-- <a href="index.html"><img  class="avt" src="C:\Users\p-xuandung\Desktop\Files\05_DM\WebDev\CodejumpTraining\avt.png" alt="Phan Xuan Dung"></a> -->
+            <div class="cover-photo">
+                <!-- <img  class="cover" src="https://picsum.photos/1920" alt="Cover"> -->
+                <img  class="cover" src="https://generative-placeholders.glitch.me/image?width=1920&height=250" alt="Cover">
+            </div>
 
-                <div class="name">
-                    <a href="index.html"><img  class="avt" src="https://picsum.photos/800" alt="Phan Xuan Dung"></a>
-                    
-                    <ul class="info-list">
-                        <li><h1 class="site-title">Phan Xuan Dung</h1></li>
-                        <li><h3 class="des">TextTextTextTextTextTextTextText</h3></li>
-                    </ul>
-                </div>
+            <div class="name">
+                <a href="index.html"><img  class="avt" src="https://cdn.jsdelivr.net/gh/joypixels/emoji-assets/png/128/1f604.png" alt="Phan Xuan Dung"></a>
                 
-            </header>
-    
-            <main id="main">
-                <ol class="links-list">
-                    <li><a href="profile.html">Profile Page</a></li>
-                    <li><a href="photobook.html">Photobook Page</a></li>
-                    <li><a href="photobook2.html">Photobook2 Page</a></li>
-                    <li><a href="recipediary.html">Recipe Diary</a></li>
-                    <li><a href="recipediary2.html">Recipe Diary 2</a></li>
-                    <li><a href="myworkportfolio.html">My Work Portfolio</a></li>
-                    
-                </ol>
-            </main>
-        </div>
+                <ul class="info-list">
+                    <li><h1 class="site-title">Phan Xuan Dung</h1></li>
+                    <li><h3 class="des">TextTextText</h3></li>
+                </ul>
+            </div>
+            
+        </header>
+
+        <main id="main">
+            <ol class="links-list">
+                <li><a href="profile.html">Profile Page</a></li>
+                <li><a href="photobook.html">Photobook Page</a></li>
+                <li><a href="photobook2.html">Photobook2 Page</a></li>
+                <li><a href="recipediary.html">Recipe Diary</a></li>
+                <li><a href="recipediary2.html">Recipe Diary 2</a></li>
+                <li><a href="myworkportfolio.html">My Work Portfolio</a></li>
+                
+            </ol>
+        </main>
 
         <footer id="footer">
             <p>&copy; 2024 PHAN XUAN DUNG</p>
