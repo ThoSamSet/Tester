@@ -5,6 +5,7 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Test Zone</title>
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
         <style>
@@ -30,7 +31,7 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
 
             #header .cover {
                 height: 240px;
-                min-width: 100%;
+                width: 100%;
                 object-fit: cover;
             }
 
@@ -89,24 +90,24 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
             #main .links-list {
                 display: flex;
                 flex-direction: column;
-                list-style-type: none;
                 align-items: center;
+                list-style-type: none;
             }
 
             #main .links-list li {
-                margin-bottom: 0;
+                display: flex;
+                justify-content: center;
+                padding-top: 10px;
+                padding-bottom: 20px;
+                width: 100%;
             }
 
             #main .links-list li a {
-                display: inline-block;
-                text-align: center;
-                width: 700px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                margin: 0 auto 20px auto;
                 border: dotted 1px #333;
-                transition: background-color 0.3s ease;
-                color: black;
+                padding: 10px;
+                text-align: center;
+                width: 60%;
+                margin: auto;
             }
 
             #main .links-list li a:hover {
@@ -123,6 +124,9 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
             }
 
             @media screen and (max-width: 850px) {
+                #main {
+                    min-height: 100vh;
+                }
 
                 #header .name {
                     flex-direction: column;
@@ -141,13 +145,10 @@ Copyright © 2024 ProVision - PHAN XUAN DUNG. All rights reserved.
                     text-align: center;
                 }
 
-                #main .links-list {
-                    margin-left: 0;
-                }
-
                 #main .links-list li a {
-                    width: 400px;
-                }                
+                    width: 80%;
+                }
+             
             }
         </style>
     </head>
