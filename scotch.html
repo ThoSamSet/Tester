@@ -1,0 +1,140 @@
+<!--
+Copyright © 2024 Phan Xuan Dung. All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>Scotch</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <style>
+            :root {
+                --dark-color: #191f1d;
+                --mid-dark: #555a57;
+                --light-color: #ece0c8;
+                --mid-light: #949993;
+                --shadow: #0005;
+                --linear-rainbow: linear-gradient(to right,#ede6bf,#ecc947,#cb5a31,#6f5d79,#4e779a);
+                --circle-rainbow: radial-gradient(circle at left top,#ede6bf,#ecc947,#cb5a31,#6f5d79,#4e779a);
+            }
+
+            html, body {
+                margin: 0;
+                height: 100vh;
+                color: var(--light-color);
+            }
+
+            body {
+                background: var(--dark-color);
+            }
+
+            h1 {
+                margin: 0;
+                font-family: "Mulish", sans-serif;
+                font-weight: 1000;
+                font-size: 64px;
+                color: var(--light-color);
+            }
+
+            h2 {
+                margin: 0;
+                font-family: "Playfair Display", serif;
+                font-size: 16px;
+                color: var(--mid-light);
+            }
+
+            h3 {
+                margin: 0;
+                font-family: "DM Serif Display", serif;
+                font-size: 24px;
+                color: var(--mid-light);
+            }
+
+            p {
+                font-family: "Mulish", sans-serif;
+                font-weight: 700;
+                width: 390px;
+                color: var(--mid-light);
+            }
+
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                box-sizing: border-box;
+                margin: 30px 128px;
+                gap: 48px;
+                font-size: 16px;
+                list-style: none;
+            }
+            
+            a {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+                font-family: "Mulish", sans-serif;
+                color: var(--mid-light);
+                font-weight: 400;
+                text-decoration: none;
+                transition: all 0.2s ease-in-out;
+            }
+
+            #header {
+                margin-bottom: 60px;
+            }
+
+            .mainvisual {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .sun {
+                display: grid;
+                height: 200px;
+                width: 200px;
+                background-image: var(--circle-rainbow);
+                border: 3px solid var(--dark-color);
+                border-radius: 50%;
+                transition: all 0.4s;
+                box-shadow: 0px 0px var(--shadow);
+            }
+
+            .learn-more {
+                max-width: 1000px;
+                margin: 150px auto 0 auto;
+                display: flex;
+                justify-content: center;
+            }
+
+        </style>
+    </head>
+    
+    <body>
+        <header id="header">
+            <nav>
+                <ul>
+                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">BUY NOW</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main">
+            <div class="mainvisual">
+                <div class="text">
+                    <h1>Scotch</h1>
+                    <h2>VIDEOCASSETTE EG</h2>
+                    <h3>T 120</h3>
+                    <p>Designed by the inventors of videotape, this Scotch EG Videocasette gives your superior performance</p>
+                </div>
+                <div class="sun">
+                </div>
+            </div>
+            <div class="learn-more">
+                <a href="#">LEARN MORE</a>
+            </div>
+        </main>
+    </body>
+</html>
