@@ -1,0 +1,287 @@
+<!--
+Copyright © 2024 Phan Xuan Dung. All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nNote by Dung</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #colorPalette {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .color {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            margin: 0 2px;
+        }
+
+        canvas {
+            border: 1px solid #000;
+            image-rendering: pixelated; /* Để các pixel không bị nhòe */
+        }
+
+        /* Toggle switch styles */
+        .toggle-block {
+            display: flex;
+            align-items: center; /* Canh giữa các phần tử theo chiều dọc */
+            gap: 10px; /* Thêm khoảng cách giữa các phần tử */
+        }
+        
+        .toggle-label {
+            margin: 0; 
+            font-size: 16px; 
+        }
+
+        .toggle-container {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            margin-bottom: 10px;
+        }
+
+        .toggle {
+            position: absolute;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            border-radius: 15px;
+            transition: background-color 0.2s;
+        }
+
+        .toggle::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        /* Active state styles */
+        .toggle.active {
+            background-color: #4caf50; /* Color when active */
+        }
+
+        .toggle.active::before {
+            transform: translateX(30px); /* Move to the right */
+        }
+
+        /* Zoom level styles */
+        .zoom-radio {
+            margin: 0 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>nNote Pixel</h1>
+    <div id="colorPalette">
+        <div class="color" style="background-color: red;"></div>
+        <div class="color" style="background-color: green;"></div>
+        <div class="color" style="background-color: blue;"></div>
+        <div class="color" style="background-color: yellow;"></div>
+        <div class="color" style="background-color: black;"></div>
+        <div class="color" style="background-color: white; border: 2px solid #ccc;"></div>
+    </div>
+
+    <!-- Toggle switch -->
+    <div class="toggle-block">
+        <p class="toggle-label">Draw</p>
+        <div class="toggle-container">
+            <div class="toggle" id="toggleSwitch"></div>
+        </div>
+        <p class="toggle-label">Move</p>
+    </div>
+    
+
+    <!-- Zoom level radio buttons -->
+    <div>
+        <label><input type="radio" name="zoom" value="10" class="zoom-radio" checked> 100%</label>
+        <label><input type="radio" name="zoom" value="30" class="zoom-radio"> 200%</label>
+        <label><input type="radio" name="zoom" value="60" class="zoom-radio"> 300%</label>
+    </div>
+
+    <canvas id="pixelCanvas" width="400" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("pixelCanvas");
+        const ctx = canvas.getContext("2d");
+        const toggleSwitch = document.getElementById("toggleSwitch");
+        const colors = document.querySelectorAll(".color");
+        let selectedColor = "#000000"; // Màu mặc định là đen
+        
+        let BLOCK_SIZE = 10; // Kích thước của mỗi block
+        const BLOCK_GAP = 2; // Khoảng cách giữa các block
+        const NUM_BLOCKS = 100; // Số lượng block theo chiều ngang và chiều dọc
+        
+        let isDragging = false; // Biến theo dõi trạng thái kéo chuột
+        let isDrawingMode = true; // Chế độ vẽ mặc định là true
+        let offsetX = 0; // Độ dịch chuyển theo chiều ngang
+        let offsetY = 0; // Độ dịch chuyển theo chiều dọc
+        let mouseDown = false; // Biến kiểm tra có nhấn chuột hay không
+
+        // Tạo một mảng để lưu trữ các block
+        const blocks = [];
+
+        // Khởi tạo canvas với màu xám
+        function initCanvas() {
+            for (let x = 0; x < NUM_BLOCKS; x++) {
+                for (let y = 0; y < NUM_BLOCKS; y++) {
+                    const block = {
+                        x: x,
+                        y: y,
+                        color: "#e6e6e6" // Màu mặc định cho mỗi block
+                    };
+                    blocks.push(block);
+                }
+            }
+
+            // Tính toán vị trí căn giữa cho canvas
+            offsetX = (canvas.width - (NUM_BLOCKS * (BLOCK_SIZE + BLOCK_GAP) - BLOCK_GAP)) / 2;
+            offsetY = (canvas.height - (NUM_BLOCKS * (BLOCK_SIZE + BLOCK_GAP) - BLOCK_GAP)) / 2;
+            renderCanvas();
+        }
+
+        // Vẽ lại tất cả các block
+        function renderCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            blocks.forEach(drawBlock);
+        }
+        
+        // Hàm vẽ block
+        function drawBlock(block) {
+            ctx.fillStyle = block.color;
+            ctx.fillRect(
+                (block.x * (BLOCK_SIZE + BLOCK_GAP)) + offsetX,
+                (block.y * (BLOCK_SIZE + BLOCK_GAP)) + offsetY,
+                BLOCK_SIZE,
+                BLOCK_SIZE
+            );
+        }
+        
+        // Tô màu block
+        function fillBlock(event) {
+            const rect = canvas.getBoundingClientRect();
+            
+            // Tính toán vị trí chuột
+            const mouseX = event.clientX - rect.left - offsetX; // Vị trí chuột theo chiều ngang
+            const mouseY = event.clientY - rect.top - offsetY; // Vị trí chuột theo chiều dọc
+
+            // Duyệt qua tất cả các block để kiểm tra xem chuột có nằm trong block nào không
+            blocks.forEach(block => {
+                const blockLeft = block.x * (BLOCK_SIZE + BLOCK_GAP);
+                const blockTop = block.y * (BLOCK_SIZE + BLOCK_GAP);
+                
+                // Kiểm tra nếu vị trí chuột nằm trong khung của block
+                if (
+                    mouseX >= blockLeft && mouseX <= blockLeft + BLOCK_SIZE &&
+                    mouseY >= blockTop && mouseY <= blockTop + BLOCK_SIZE
+                ) {
+                    // Tô màu block
+                    block.color = selectedColor; // Sử dụng màu đã chọn
+                    drawBlock(block); // Vẽ lại block
+                }
+            });
+        }
+        
+        // Di chuyển bản đồ khi kéo chuột
+        canvas.addEventListener("mousedown", function(event) {
+            mouseDown = true; // Đặt biến nhấn chuột thành true
+            if (!isDrawingMode) {
+                isDragging = true; // Bắt đầu kéo nếu ở chế độ di chuyển
+            } else {
+                fillBlock(event); // Tô màu block khi nhấn chuột
+            }
+        });
+
+        canvas.addEventListener("mousemove", function(event) {
+            if (isDragging) {
+                // Tính toán khoảng cách di chuyển
+                const deltaX = event.movementX; // Lấy sự di chuyển theo chiều ngang
+                const deltaY = event.movementY; // Lấy sự di chuyển theo chiều dọc
+                
+                // Cập nhật vị trí của canvas
+                offsetX += deltaX; // Cập nhật độ dịch chuyển theo chiều ngang
+                offsetY += deltaY; // Cập nhật độ dịch chuyển theo chiều dọc
+                
+                // Vẽ lại tất cả các block
+                renderCanvas();
+            } else if (isDrawingMode && mouseDown) {
+                // Nếu đang ở chế độ vẽ và nhấn chuột, có thể tô màu khi di chuyển chuột
+                fillBlock(event); // Tô màu block nếu di chuyển chuột
+            }
+        });
+        
+        // Dừng kéo chuột
+        canvas.addEventListener("mouseup", function() {
+            isDragging = false; // Đặt trạng thái kéo chuột thành false
+            mouseDown = false; // Đặt biến nhấn chuột thành false
+        });
+        
+        // Nếu bạn muốn ngăn chặn việc kéo chuột bên ngoài canvas
+        canvas.addEventListener("mouseleave", function() {
+            isDragging = false; // Đặt trạng thái kéo chuột thành false khi chuột ra ngoài canvas
+            mouseDown = false; // Đặt biến nhấn chuột thành false
+        });
+        
+        // Chuyển đổi giữa chế độ vẽ và chế độ di chuyển
+        toggleSwitch.addEventListener("click", function() {
+            isDrawingMode = !isDrawingMode; // Chuyển đổi giữa hai chế độ
+            toggleSwitch.classList.toggle("active"); // Thay đổi lớp CSS cho toggle
+        });
+        
+        // Thay đổi màu đã chọn khi người dùng nhấp vào màu
+        colors.forEach(color => {
+            color.addEventListener("click", function() {
+                selectedColor = this.style.backgroundColor;
+                colors.forEach(c => c.style.border = "1px solid #ccc");
+                this.style.border = "2px solid #000"; // Đánh dấu màu đã chọn
+            });
+        });
+
+        document.querySelectorAll(".zoom-radio").forEach(radio => {
+            radio.addEventListener("change", function() {
+                // Lấy vị trí block trung tâm hiện tại
+                const centerX = (canvas.width / 2 - offsetX) / (BLOCK_SIZE + BLOCK_GAP);
+                const centerY = (canvas.height / 2 - offsetY) / (BLOCK_SIZE + BLOCK_GAP);
+                
+                // Tính lại vị trí trung tâm
+                const centerBlockX = Math.floor(centerX);
+                const centerBlockY = Math.floor(centerY);
+        
+                // Cập nhật vị trí trung tâm cho zoom
+                BLOCK_SIZE = parseInt(this.value);
+                
+                // Tính lại vị trí trung tâm
+                offsetX = canvas.width / 2 - centerBlockX * (BLOCK_SIZE + BLOCK_GAP);
+                offsetY = canvas.height / 2 - centerBlockY * (BLOCK_SIZE + BLOCK_GAP);
+        
+                // Vẽ lại tất cả các block
+                renderCanvas();
+            });
+        });
+        
+        initCanvas();
+    </script>
+</body>
+</html>
