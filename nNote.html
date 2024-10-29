@@ -116,7 +116,7 @@ Copyright © 2024 Phan Xuan Dung. All rights reserved.
 
     <!-- Zoom level radio buttons -->
     <div>
-        <label><input type="radio" name="zoom" value="10" class="zoom-radio" checked> 100%</label>
+        <label><input type="radio" name="zoom" value="5" class="zoom-radio" checked> 100%</label>
         <label><input type="radio" name="zoom" value="30" class="zoom-radio"> 200%</label>
         <label><input type="radio" name="zoom" value="60" class="zoom-radio"> 300%</label>
     </div>
@@ -130,8 +130,7 @@ Copyright © 2024 Phan Xuan Dung. All rights reserved.
         const colors = document.querySelectorAll(".color");
         let selectedColor = "#000000"; // Màu mặc định là đen
         
-        let BLOCK_SIZE = 10; // Kích thước của mỗi block
-        const BLOCK_GAP = 2; // Khoảng cách giữa các block
+        let BLOCK_GAP = 0; // Khoảng cách giữa các block
         const NUM_BLOCKS = 100; // Số lượng block theo chiều ngang và chiều dọc
         
         let isDragging = false; // Biến theo dõi trạng thái kéo chuột
@@ -139,6 +138,21 @@ Copyright © 2024 Phan Xuan Dung. All rights reserved.
         let offsetX = 0; // Độ dịch chuyển theo chiều ngang
         let offsetY = 0; // Độ dịch chuyển theo chiều dọc
         let mouseDown = false; // Biến kiểm tra có nhấn chuột hay không
+
+        let BLOCK_SIZE = 10; // Kích thước của mỗi block
+        const zoomRadios = document.querySelectorAll('input[name="zoom"]'); // Lấy tất cả các radio button có name là "zoom"
+        for (const radio of zoomRadios) {
+            if (radio.checked) {
+                BLOCK_SIZE = parseInt(radio.value); // Gán giá trị checked cho BLOCK_SIZE
+                if (radio.value >= 10) {
+                    BLOCK_GAP = 2
+                }
+                else {
+                    BLOCK_GAP = 0
+                }
+                break; // Dừng vòng lặp khi đã tìm thấy radio được checked
+            }
+        }
 
         // Tạo một mảng để lưu trữ các block
         const blocks = [];
@@ -259,6 +273,7 @@ Copyright © 2024 Phan Xuan Dung. All rights reserved.
             });
         });
 
+        // Thay đổi độ zoom 
         document.querySelectorAll(".zoom-radio").forEach(radio => {
             radio.addEventListener("change", function() {
                 // Lấy vị trí block trung tâm hiện tại
@@ -271,6 +286,12 @@ Copyright © 2024 Phan Xuan Dung. All rights reserved.
         
                 // Cập nhật vị trí trung tâm cho zoom
                 BLOCK_SIZE = parseInt(this.value);
+                if (this.value >= 10) {
+                    BLOCK_GAP = 2
+                }
+                else {
+                    BLOCK_GAP = 0
+                }
                 
                 // Tính lại vị trí trung tâm
                 offsetX = canvas.width / 2 - centerBlockX * (BLOCK_SIZE + BLOCK_GAP);
@@ -282,6 +303,16 @@ Copyright © 2024 Phan Xuan Dung. All rights reserved.
         });
         
         initCanvas();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEF8X871T6"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HEF8X871T6');
     </script>
 </body>
 </html>
