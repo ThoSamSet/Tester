@@ -1,0 +1,111 @@
+<!--
+Copyright © 2024 Phan Xuan Dung. All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>say Hello app</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <style>
+            html {
+                font-size: 100%;
+                background-color: lightgrey;
+            }
+
+            body {
+                font-family: "Arial", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+                font-size: 1rem;
+            }
+
+            .question-input-box {
+                width: 200px;
+                border-radius: 5px;
+                border: 2px solid black;
+            }
+
+            .question-input-box:focus {
+                outline: 0;
+                border: 2px solid #2196f3;
+            }
+            .output {
+                display: flex;
+                width: 250px;
+                margin-top: 5px;
+                font-size: 1rem;
+            }
+
+            .ouputText {
+                width: 200px;
+                border: 1px solid #000000;
+                border-radius: 5px;
+                background-color: lightgray;
+            }
+
+            .emoji {
+                display: inline-block;
+                font-size: 24px;
+
+            }
+            
+        </style>
+    </head>
+    <body>
+        <p>say Hello to World!</p>
+
+        <div class="emoji" id="userEmoji">&#128530</div>
+
+        <input class="question-input-box" type="text" name="name" placeholder="input text here" id="textInput" maxlength="20">
+        <button class="submit-button" id="submitButton">Send</button>
+        <div class="output-container" id="outputContainer"></div>
+
+        <script>
+            const textInput = document.getElementById('textInput');
+            const outputContainer = document.getElementById('outputContainer');
+            const submitButton = document.getElementById('submitButton');
+            const userEmoji = document.getElementById('userEmoji');
+
+            // Danh sách các emoji ngẫu nhiên
+            const emojis = ["😄", "😃", "😊", "😂", "😍", "😎", "😢", "😉", "😜", "😁"];
+
+            userEmoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+            submitButton.addEventListener('click', function() {
+                if (textInput.value.trim() !== "") { // Kiểm tra giá trị rỗng
+                    const newOutput = document.createElement('div'); // Tạo một div mới 
+                    newOutput.classList.add('output'); // Thêm class output cho thẻ div 
+
+                    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+                    const emojiElement = document.createElement('span');
+                    emojiElement.classList.add('emoji');
+                    emojiElement.innerText = randomEmoji;
+
+                    const textElement = document.createElement('div');
+                    textElement.classList.add('ouputText');
+                    textElement.innerText = textInput.value;
+
+                    newOutput.appendChild(emojiElement);
+                    newOutput.appendChild(textElement);
+
+
+                    outputContainer.appendChild(newOutput); // Thêm div vừa tạo vào container 
+                    textInput.value = ""; // Reset giá trị text đã nhập 
+                    userEmoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                }
+            });
+            
+        </script>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEF8X871T6"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HEF8X871T6');
+        </script>
+    </body>
+</html>
